@@ -1,0 +1,44 @@
+{
+    "collectionList": [
+        {
+            "title": "Example 1",
+            "image": "https://picsum.photos/200",
+            "description": "Lorem ipsum 1"
+        },
+        {
+            "title": "Example 2",
+            "image": "https://picsum.photos/250",
+            "description": "Lorem ipsum 2"
+        },
+        {
+            "title": "Example 3",
+            "image": "https://picsum.photos/300",
+            "description": "Lorem ipsum 3"
+        },
+        {
+            "title": "Example 4",
+            "image": "https://picsum.photos/350",
+            "description": "Lorem ipsum 4"
+        },
+        {
+            "title": "Example 5",
+            "image": "https://picsum.photos/400",
+            "description": "Lorem ipsum 5"
+        },
+        {
+            "title": "Example 6",
+            "image": "https://picsum.photos/450",
+            "description": "Lorem ipsum 6"
+        },
+        {
+            "title": "Example 7",
+            "image": "https://picsum.photos/500",
+            "description": "Lorem ipsum 7"
+        },
+        {
+            "title": "Example 8",
+            "image": "https://picsum.photos/550",
+            "description": "Lorem ipsum 8"
+        }
+    ]
+}
