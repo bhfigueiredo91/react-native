@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
-import { Alert, TouchableOpacity} from 'react-native'
+import React from 'react'
+import { Alert, TouchableOpacity, View} from 'react-native'
 import NFTCollectionItem from './NFTCollectionItem'
 
 class NFTListComponent extends React.Component{
     render(){
-        return  <Fragment>
+        return  <View>
                     {this.props.data.map((collection, index) => (
                         <TouchableOpacity
                             key = {index}
@@ -13,7 +13,7 @@ class NFTListComponent extends React.Component{
                             <NFTCollectionItem nftItem={collection} />
                         </TouchableOpacity>
                     ))}
-                </Fragment>
+                </View>
     }
 }
 

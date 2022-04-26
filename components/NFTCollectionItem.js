@@ -1,10 +1,9 @@
-import React, { Fragment }  from 'react'
+import React from 'react'
 import { View, Text, TouchableHighlight, Image, StyleSheet } from 'react-native'
 
 class NFTCollectionItem extends React.Component{
     render(){
         return (
-            <Fragment>
                 <View style={styles.item}>
                     <Image source={{uri: this.props.nftItem.image}} style={styles.image} resizeMode={"cover"} />
                     <View>
@@ -16,7 +15,6 @@ class NFTCollectionItem extends React.Component{
                         </TouchableHighlight>
                     </View>                        
                 </View>               
-            </Fragment>
         )
     }
 }
@@ -27,7 +25,7 @@ const styles = StyleSheet.create({
     },
     title: {
         padding: 2,
-        textAlign: 'right',
+        textAlign: 'left',
         fontSize: 26
     },
     description: {
