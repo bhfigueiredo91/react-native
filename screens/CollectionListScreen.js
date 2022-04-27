@@ -30,7 +30,7 @@ class CollectionListScreen extends React.Component{
 
         if(filteredNftCollectionsList.length > 0){
             return(
-                <NFTListComponent data={filteredNftCollectionsList} style={styles.container} />
+                <NFTListComponent data={filteredNftCollectionsList} style={styles.container} navigation={this.props.navigation} />
             ) 
         }else{
             return(
@@ -44,7 +44,6 @@ class CollectionListScreen extends React.Component{
     render(){
         return(
             <ScrollView>
-                <Text style={styles.header}>Collections</Text>
                 <TextInput style={styles.search} placeholder='Search for a collection here...' onChangeText={text => this.setState({searchInput : text})}/>
                 {this.renderNFTListComponent()}
             </ScrollView>
@@ -64,11 +63,6 @@ const baseStyle = {
 const styles = StyleSheet.create({
     container: {
         ...baseStyle,
-    },
-    header: {
-        ...baseStyle,
-        marginVertical: 0,
-        fontSize: 32       
     },
     search: {
         backgroundColor: '#fff',
