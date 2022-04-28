@@ -27,7 +27,6 @@ class CollectionListScreen extends React.Component{
             });
         }
 
-
         if(filteredNftCollectionsList.length > 0){
             return(
                 <NFTListComponent data={filteredNftCollectionsList} style={styles.container} navigation={this.props.navigation} />
@@ -37,14 +36,13 @@ class CollectionListScreen extends React.Component{
                 <EmptyResultsComponent />
             )
         }               
-    }
-
-    
+    }    
 
     render(){
         return(
             <ScrollView>
                 <TextInput style={styles.search} placeholder='Search for a collection here...' onChangeText={text => this.setState({searchInput : text})}/>
+                {this.state.searchInput ? <Text style={styles.resultSearch}>Search results for: {this.state.searchInput}</Text> : <Text/>}
                 {this.renderNFTListComponent()}
             </ScrollView>
         )
@@ -63,6 +61,12 @@ const baseStyle = {
 const styles = StyleSheet.create({
     container: {
         ...baseStyle,
+    },
+    resultSearch: {
+        padding: 5,
+        margin: 5,
+        justifyContent: 'center',
+        textAlign: 'center'
     },
     search: {
         backgroundColor: '#fff',
