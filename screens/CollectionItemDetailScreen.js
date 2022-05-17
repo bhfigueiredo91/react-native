@@ -1,22 +1,17 @@
 import React  from 'react'
 import { View, Text, TouchableHighlight, StyleSheet} from 'react-native'
 
-class CollectionItemDetailScreen extends React.Component{
-    constructor(props){
-        super(props)
-    }
-    render(){
-        return (
-                <View style={styles.item}>
-                   <TouchableHighlight>
-                        <Text style={styles.title}>{this.props.route.params.title}</Text>
-                    </TouchableHighlight>   
-                    <TouchableHighlight>
-                        <Text style={styles.description}>{this.props.route.params.description}</Text>   
-                    </TouchableHighlight>
-                </View>     
-        )
-    }
+function CollectionItemDetailScreen({route}) {
+    return (
+            <View style={styles.item}>
+                <TouchableHighlight>
+                    <Text style={styles.title}>{route.params.title}</Text>
+                </TouchableHighlight>   
+                <TouchableHighlight>
+                    <Text style={styles.description}>{route.params.description}</Text>   
+                </TouchableHighlight>
+            </View>  
+    );
 }
 
 const styles = StyleSheet.create({

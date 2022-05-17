@@ -1,59 +1,37 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {ScrollView, Text, TextInput, StyleSheet} from 'react-native'
-import EmptyResultsComponent from '../components/EmptyResultsComponent';
-import NFTListComponent from '../components/NFTListComponent'
+import SearchCollectionComponent from '../components/SearchCollectionComponent';
 import data from '../source/data.json'
 
-const nftCollectionsList = data.collectionList;
-let filteredNftCollectionsList = [];
+function CollectionListScreen({navigation}){
+    
+    const [searchInput, setSearchInput] = useState('')
 
-class CollectionListScreen extends React.Component{
+    const [nftCollections, setNftCollections] = useState([])
 
-    constructor(props){
-        super(props)
-        this.state = {
-            searchInput: ''
-        }
-    }
-
-    renderNFTListComponent() {
-        filteredNftCollectionsList = nftCollectionsList;
-        
-        if(this.state.searchInput !== ''){
-            filteredNftCollectionsList = nftCollectionsList.filter((e) => {
-                return e.title.indexOf(this.state.searchInput) !== -1;
-            }).map(x => {
+    useEffect(() => {
+        let filteredCollections = data.collectionList;
+        if(searchInput !== undefined && searchInput !== ''){
+            filteredCollections = data.collectionList.filter((e) => {
+                return e.title.indexOf(searchInput) !== -1;
+            }).map((x) => {
                 return x;
             });
         }
+        setNftCollections(filteredCollections)      
+    }, [searchInput])
 
-        if(filteredNftCollectionsList.length > 0){
-            return(
-                <NFTListComponent data={filteredNftCollectionsList} style={styles.container} navigation={this.props.navigation} />
-            ) 
-        }else{
-            return(
-                <EmptyResultsComponent />
-            )
-        }               
-    }    
-
-    render(){
-        return(
-            <ScrollView>
-                <TextInput style={styles.search} placeholder='Search for a collection here...' onChangeText={text => this.setState({searchInput : text})}/>
-                {this.state.searchInput ? <Text style={styles.resultSearch}>Search results for: {this.state.searchInput}</Text> : <Text/>}
-                {this.renderNFTListComponent()}
-            </ScrollView>
-        )
-    }
+    return(
+        <ScrollView>
+            <TextInput style={styles.search} placeholder='Search for a collection here...' onChangeText={text => setSearchInput(text)} defaultValue={searchInput}/>
+            {searchInput ? <Text style={styles.resultSearch}>Search results for: {searchInput}</Text> : <Text/>}
+            <SearchCollectionComponent navigation={navigation} collection={nftCollections} />
+        </ScrollView>
+    )
 }
 
 const baseStyle = {
     backgroundColor: '#fff',
-    paddingVertical: 20,
-    paddingHorizontal: 10,
-    width: '100%',
     borderWidth: 1,
     borderColor: '#000'
 }
@@ -61,6 +39,9 @@ const baseStyle = {
 const styles = StyleSheet.create({
     container: {
         ...baseStyle,
+        paddingVertical: 20,
+        paddingHorizontal: 10,
+        width: '100%'
     },
     resultSearch: {
         padding: 5,
@@ -69,12 +50,10 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     search: {
-        backgroundColor: '#fff',
+        ...baseStyle,
         marginVertical: 10,
         marginHorizontal: 20,
         justifyContent: 'center',
-        borderWidth: 1,
-        borderColor: '#000',
         borderRadius: 100,
         textAlign: 'center'    
     }

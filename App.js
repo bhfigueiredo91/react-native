@@ -8,15 +8,16 @@ import CollectionItemDetailScreen from './screens/CollectionItemDetailScreen';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-export default class MainComponent extends React.Component {  
-    render() {  
-        return(
-            <NavigationContainer theme={DefaultTheme}>
-                <Stack.Navigator initialRouteName="Home">
-                    <Stack.Screen name="Home" component={CollectionListScreen} options={{ title: 'Collections' }} navigation={this.props.navigation} />
-                    <Stack.Screen name="Details" component={CollectionItemDetailScreen} options={{ title: 'Collection Details' }} navigation={this.props.navigation} />
-                </Stack.Navigator>
-            </NavigationContainer> 
-        );  
-    }  
+function App({navigation}) 
+{
+    return(
+        <NavigationContainer theme={DefaultTheme}>
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen name="Home" component={CollectionListScreen} options={{ title: 'Collections' }} navigation={navigation} />
+                <Stack.Screen name="Details" component={CollectionItemDetailScreen} options={{ title: 'Collection Details' }} navigation={navigation} />
+            </Stack.Navigator>
+        </NavigationContainer> 
+    );
 }
+
+export default App;

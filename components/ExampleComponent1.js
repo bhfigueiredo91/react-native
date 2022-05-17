@@ -1,12 +1,12 @@
-import React from 'react';
-import {Text} from 'react-native';
+// import React from 'react';
+// import {Text} from 'react-native';
 
-class ExampleComponent1 extends React.Component{
-    render(){
-        return (
-            <Text>{this.props.message}</Text>
-        )
-    }
-}
+// class ExampleComponent1 extends React.Component{
+//     render(){
+//         return (
+//             <Text>{this.props.message}</Text>
+//         )
+//     }
+// }
 
-export default ExampleComponent1
+// export default ExampleComponent1

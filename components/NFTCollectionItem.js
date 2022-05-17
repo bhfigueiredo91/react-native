@@ -1,22 +1,20 @@
 import React from 'react'
 import { View, Text, TouchableHighlight, Image, StyleSheet } from 'react-native'
 
-class NFTCollectionItem extends React.Component{
-    render(){
-        return (
-                <View style={styles.item}>
-                    <Image source={{uri: this.props.nftItem.image}} style={styles.image} resizeMode={"cover"} />
-                    <View>
-                        <TouchableHighlight>
-                            <Text style={styles.title}>{this.props.nftItem.title}</Text>
-                        </TouchableHighlight>   
-                        <TouchableHighlight>
-                            <Text style={styles.description}>{this.props.nftItem.description}</Text>   
-                        </TouchableHighlight>
-                    </View>                        
-                </View>               
-        )
-    }
+function NFTCollectionItem({nftItem}) {
+    return(
+        <View style={styles.item}>
+            <Image source={{uri: nftItem.image}} style={styles.image} resizeMode={"cover"} />
+            <View>
+                <TouchableHighlight>
+                    <Text style={styles.title}>{nftItem.title}</Text>
+                </TouchableHighlight>   
+                <TouchableHighlight>
+                    <Text style={styles.description}>{nftItem.description}</Text>   
+                </TouchableHighlight>
+            </View>                        
+        </View> 
+    );
 }
 
 const styles = StyleSheet.create({
