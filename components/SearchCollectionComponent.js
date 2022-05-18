@@ -6,7 +6,7 @@ import NFTListComponent from '../components/NFTListComponent'
 function SearchCollectionComponent({collection, navigation}){
     let view = <EmptyResultsComponent />
 
-    if(collection.length > 0){
+    if(collection != null){
         view = <NFTListComponent data={collection} style={styles.container} navigation={navigation} />
     }
 
